@@ -44,23 +44,72 @@ namespace G_NET_7_OOP04
             #region Q3:
             // The main keywords used for method overriding in C# are:
 
-                //virtual
-                //Used in the base class to declare a method that can be overridden in a derived class.
+            //virtual
+            //Used in the base class to declare a method that can be overridden in a derived class.
 
-                //override
-                //Used in the derived class to provide a new implementation of the virtual method.
+            //override
+            //Used in the derived class to provide a new implementation of the virtual method.
 
-                //abstract
-                //Declares a method in an abstract class without implementation, and it must be overridden in derived classes.
+            //abstract
+            //Declares a method in an abstract class without implementation, and it must be overridden in derived classes.
 
-                //sealed
-                //Used with an overridden method to prevent further overriding in derived classes.
+            //sealed
+            //Used with an overridden method to prevent further overriding in derived classes.
             #endregion
 
-           #endregion
+            #endregion
+
+            #region  Part 02 : Practical
+            Cinema cinema = new Cinema();
+
+            cinema.OpenCinema();
+
+            Console.WriteLine("\n======== SetPrice Test ========");
+
+            StandardTicket t1 = new StandardTicket()
+            {
+                TicketId = 1,
+                MovieName = "Inception",
+                SeatNumber = "A-5"
+            };
+
+            t1.SetPrice(150);
+            t1.SetPrice(100, 1.5m);
+
+            VIPTicket t2 = new VIPTicket()
+            {
+                TicketId = 2,
+                MovieName = "Avengers",
+                LoungeAccess = true,
+                ServiceFee = 50
+            };
+
+            t2.SetPrice(200);
+
+            IMAXTicket t3 = new IMAXTicket()
+            {
+                TicketId = 3,
+                MovieName = "Dune",
+                Is3D = false
+            };
+
+            t3.SetPrice(180);
+
+            cinema.AddTicket(t1);
+            cinema.AddTicket(t2);
+            cinema.AddTicket(t3);
+
+            Console.WriteLine();
+            cinema.PrintAllTickets();
+
+            Cinema.ProcessTicket(t2);
+
+            cinema.CloseCinema();
+        
+        #endregion
 
 
 
-        }
+    }
     }
 }
